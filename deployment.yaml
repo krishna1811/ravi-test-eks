@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: ravi-k8-test
+  name: ravi-k8-test
+  namespace: ravi-test
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: ravi-k8-test
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: ravi-k8-test
+    spec:
+      containers:
+      - image: rbhogara/test-app:v0011
+        name: test-app
+        ports:
+        - containerPort: 80
+        resources: {}
+status: {}
