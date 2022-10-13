@@ -19,7 +19,7 @@ spec:
         app: ravi-k8-test
     spec:
       containers:
-      - image: rbhogara/test-app:v0011
+      - image: rbhogara/test-app:v01
         name: test-app
         ports:
         - containerPort: 80
