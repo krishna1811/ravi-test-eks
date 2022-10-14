@@ -1,27 +1,17 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: v1
+kind: Service
 metadata:
   creationTimestamp: null
   labels:
     app: ravi-app
-  name: ravi-app
+  name: ravi-internal-lb
   namespace: ravi-test
 spec:
-  replicas: 2
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 80
   selector:
-    matchLabels:
-      app: ravi-app
-  strategy: {}
-  template:
-    metadata:
-      creationTimestamp: null
-      labels:
-        app: ravi-app
-    spec:
-      containers:
-      - image: rbhogara/test-app:v01
-        name: test-app
-        ports:
-        - containerPort: 80
-        resources: {}
-status: {}
+    app: ravi-app
+status:
+  loadBalancer: {}
